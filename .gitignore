@@ -1,0 +1,33 @@
+# Codex legacy (keep skills as reference, ignore runtime artifacts)
+.codex/skills/
+
+# Cache and dependencies
+.cache/
+node_modules/
+
+# Python virtual environment
+.venv/
+.venv-mineru/
+
+# Temporary files
+*.tmp
+*.tmp.*
+
+# Windows zone identifiers (NTFS ADS artifacts)
+*:Zone.Identifier
+
+# IDE
+.vscode/
+.idea/
+
+# Output figures (binary images from MinerU)
+output/figures/
+output/_tmp/
+
+# Sensitive config
+.baoyu-skills/*/EXTEND.md
+.claude/skills/*/EXTEND.md
+
+# System files
+.DS_Store
+Thumbs.db
