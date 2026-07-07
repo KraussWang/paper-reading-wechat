@@ -96,6 +96,10 @@ paper-reading/
 └── content/                     # 输入暂存区
 ```
 
+## 致谢
+
+- [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) — `baoyu-article-illustrator`、`baoyu-cover-image`、`baoyu-format-markdown`、`baoyu-post-to-wechat` 四个 skill 来源于此项目（MIT License）
+
 ## 详细文档
 
 参见 [WORKFLOW.md](WORKFLOW.md)。
