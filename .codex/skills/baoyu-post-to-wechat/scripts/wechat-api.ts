@@ -482,7 +482,7 @@ Options:
   --author <name>     Author name (max 16 chars)
   --summary <text>    Article summary/digest (max 128 chars)
   --source-url <url>  Original article URL ("阅读原文" link, max 1KB)
-  --theme <name>      Theme name for markdown (default, grace, simple, modern). Default: default
+  --theme <name>      Theme name for markdown (default, raphael, grace, simple, modern). Default: default
   --color <name|hex>  Primary color (blue, green, vermilion, etc. or hex)
   --cover <path>      Cover image path (local or URL)
   --account <alias>   Select account by alias (for multi-account setups)
@@ -520,6 +520,7 @@ Config File Locations (in priority order):
 
 Example:
   npx -y bun wechat-api.ts article.md
+  npx -y bun wechat-api.ts article.md --theme raphael --color blue --cover cover.png
   npx -y bun wechat-api.ts article.md --theme grace --cover cover.png
   npx -y bun wechat-api.ts article.md --author "Author Name" --summary "Brief intro" --source-url "https://example.com/original"
   npx -y bun wechat-api.ts article.html --title "My Article"

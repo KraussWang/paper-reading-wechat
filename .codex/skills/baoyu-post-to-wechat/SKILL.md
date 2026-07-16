@@ -84,7 +84,7 @@ chrome_profile_path: /path/to/chrome/profile
 
 Raw `ssh` / `scp` options are intentionally not supported; only the typed keys above are honored. Authentication is SSH key only (no passwords).
 
-**Theme options**: default, grace, simple, modern. **Color presets**: blue, green, vermilion, yellow, purple, sky, rose, olive, black, gray, pink, red, orange (or hex).
+**Theme options**: default (recommended default), raphael (polished WeChat long-form articles and literature notes), grace, simple, modern. **Color presets**: blue, green, vermilion, yellow, purple, sky, rose, olive, black, gray, pink, red, orange (or hex).
 
 **Value priority**: CLI args → frontmatter → EXTEND.md (account-level → global) → skill defaults.
 
@@ -198,7 +198,7 @@ Auto-generation: title = first H1/H2 or first sentence; summary = first paragrap
 ${BUN_X} {baseDir}/scripts/wechat-api.ts <file> --theme <theme> [--color <color>] [--title <title>] [--summary <summary>] [--author <author>] [--cover <cover_path>] [--source-url <url>] [--no-cite]
 ```
 
-Always pass `--theme` even if it's `default`. Only pass `--color` when explicitly set by the user or EXTEND.md.
+Always pass `--theme` even if it's `raphael` or `default`. Only pass `--color` when explicitly set by the user or EXTEND.md.
 
 **Remote API method** (same script, adds `--remote`):
 

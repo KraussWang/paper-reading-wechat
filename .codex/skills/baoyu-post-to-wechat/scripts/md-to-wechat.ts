@@ -17,6 +17,7 @@ import {
   stripWrappingQuotes,
 } from "baoyu-md";
 import { closeRenderer, renderMermaidToPng } from "baoyu-chrome-cdp/mermaid";
+import { applyRaphaelTheme } from "./raphael-theme";
 
 interface ImageInfo {
   placeholder: string;
@@ -90,14 +91,17 @@ export async function convertMarkdown(
     `[md-to-wechat] Rendering markdown with theme: ${options?.theme ?? "default"}${options?.color ? `, color: ${options.color}` : ""}, citeStatus: ${citeStatus}`,
   );
 
+  const requestedTheme = options?.theme ?? "default";
+  const isRaphaelTheme = requestedTheme.toLowerCase() === "raphael";
+  const primaryColor = resolveColorToken(options?.color) ?? (isRaphaelTheme ? "#0066cc" : undefined);
   const { html } = await renderMarkdownDocument(rewrittenMarkdown, {
     citeStatus,
     defaultTitle: title,
     keepTitle: false,
-    primaryColor: resolveColorToken(options?.color),
-    theme: options?.theme,
+    primaryColor,
+    theme: isRaphaelTheme ? "default" : options?.theme,
   });
-  fs.writeFileSync(htmlPath, html, "utf-8");
+  fs.writeFileSync(htmlPath, isRaphaelTheme ? applyRaphaelTheme(html, primaryColor) : html, "utf-8");
 
   const contentImages = await resolveContentImages(images, baseDir, tempDir, "md-to-wechat");
 
@@ -118,7 +122,7 @@ Usage:
 
 Options:
   --title <title>     Override title
-  --theme <name>      Theme name (default, grace, simple, modern)
+  --theme <name>      Theme name (default, raphael, grace, simple, modern). Default: default
   --color <name|hex>  Primary color (blue, green, vermilion, etc. or hex)
   --no-cite           Disable bottom citations for ordinary external links
   --help              Show this help
@@ -138,6 +142,7 @@ Output JSON format:
 
 Example:
   npx -y bun md-to-wechat.ts article.md
+  npx -y bun md-to-wechat.ts article.md --theme raphael --color blue
   npx -y bun md-to-wechat.ts article.md --theme grace
   npx -y bun md-to-wechat.ts article.md --theme modern --color blue
   npx -y bun md-to-wechat.ts article.md --no-cite

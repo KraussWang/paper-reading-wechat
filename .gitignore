@@ -1,33 +1,33 @@
-# Codex legacy (keep skills as reference, ignore runtime artifacts)
-.codex/skills/
+# Local account configuration and credentials
+.baoyu-skills/
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
 
-# Cache and dependencies
+# Runtime caches and temporary files
 .cache/
-node_modules/
-
-# Python virtual environment
-.venv/
-.venv-mineru/
-
-# Temporary files
 *.tmp
-*.tmp.*
+codex-write-check-*.tmp
 
-# Windows zone identifiers (NTFS ADS artifacts)
-*:Zone.Identifier
+# Generated article outputs
+output/
+content/
 
-# IDE
-.vscode/
-.idea/
+# Local agent state
+.agents/
 
-# Output figures (binary images from MinerU)
-output/figures/
-output/_tmp/
+# Dependencies
+node_modules/
+.codex/skills/**/node_modules/
 
-# Sensitive config
-.baoyu-skills/*/EXTEND.md
-.claude/skills/*/EXTEND.md
+# Skill-local private config
+.codex/skills/**/EXTEND.md
 
-# System files
+# OS/editor noise
 .DS_Store
 Thumbs.db

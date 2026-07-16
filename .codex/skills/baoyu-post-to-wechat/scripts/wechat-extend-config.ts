@@ -102,7 +102,7 @@ function parseStrictHostKeyChecking(key: string, v: string): StrictHostKeyChecki
 
 function parseWechatExtend(content: string): WechatExtendConfig {
   const config: WechatExtendConfig = {};
-  const lines = content.split(/\r?\n/);
+  const lines = content.split("\n");
   let inAccounts = false;
   let current: Record<string, string> | null = null;
   const rawAccounts: Record<string, string>[] = [];

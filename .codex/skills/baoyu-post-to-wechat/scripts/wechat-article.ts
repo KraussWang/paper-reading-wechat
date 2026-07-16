@@ -1106,7 +1106,7 @@ Options:
   --content <text>   Article content (use with --image)
   --html <path>      HTML file to paste (alternative to --content)
   --markdown <path>  Markdown file to convert and post (recommended)
-  --theme <name>     Theme for markdown (default, grace, simple, modern)
+  --theme <name>     Theme for markdown (default, raphael, grace, simple, modern). Default: default
   --color <name|hex> Primary color (blue, green, vermilion, etc. or hex)
   --no-cite          Disable bottom citations for ordinary external links in markdown mode
   --author <name>    Author name
@@ -1119,6 +1119,7 @@ Options:
 
 Examples:
   npx -y bun wechat-article.ts --markdown article.md
+  npx -y bun wechat-article.ts --markdown article.md --theme raphael --color blue
   npx -y bun wechat-article.ts --markdown article.md --theme grace --submit
   npx -y bun wechat-article.ts --markdown article.md --no-cite
   npx -y bun wechat-article.ts --title "标题" --content "内容" --image img.png

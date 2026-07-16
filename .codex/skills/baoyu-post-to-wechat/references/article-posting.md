@@ -9,6 +9,8 @@ Post markdown articles to WeChat Official Account with full formatting support.
 ${BUN_X} ./scripts/wechat-article.ts --markdown article.md
 
 # With theme
+${BUN_X} ./scripts/wechat-article.ts --markdown article.md --theme default
+${BUN_X} ./scripts/wechat-article.ts --markdown article.md --theme raphael --color blue
 ${BUN_X} ./scripts/wechat-article.ts --markdown article.md --theme grace
 
 # Disable bottom citations for ordinary external links
@@ -23,7 +25,7 @@ ${BUN_X} ./scripts/wechat-article.ts --markdown article.md --author "作者名" 
 | Parameter | Description |
 |-----------|-------------|
 | `--markdown <path>` | Markdown file to convert and post |
-| `--theme <name>` | Theme: default, grace, simple, modern |
+| `--theme <name>` | Theme: raphael, default, grace, simple, modern |
 | `--no-cite` | Keep ordinary external links inline instead of converting them to bottom citations |
 | `--title <text>` | Override title (auto-extracted from markdown) |
 | `--author <name>` | Author name |
@@ -73,8 +75,7 @@ Markdown mode converts ordinary external links into bottom citations by default 
 | Script | Purpose |
 |--------|---------|
 | `wechat-article.ts` | Main article publishing script |
-| `md-to-wechat.ts` | Markdown to HTML with placeholders |
-| `md/render.ts` | Markdown rendering with themes |
+| `md-to-wechat.ts` | Markdown to HTML with placeholders and themes, including Raphael |
 
 ## Example Session
 
